@@ -12,7 +12,7 @@
 *.rar
 hs_err_pid*
 
-*.imi
+*.iml
 .idea
 out
 src/applicationContext.xml
