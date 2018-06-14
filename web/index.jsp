@@ -10,6 +10,6 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  hehe
   </body>
 </html>
