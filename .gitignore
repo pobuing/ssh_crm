@@ -17,3 +17,4 @@ hs_err_pid*
 out
 src/applicationContext.xml
 src/hibernate.cfg.xml.back
+*.properties
