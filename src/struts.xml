@@ -11,6 +11,10 @@
     <!--将action的创建 交给spring容器-->
     <constant name="struts.objectFactory" value="spring"/>
     <package name="crm" namespace="/" extends="struts-default">
+        <global-exception-mappings>
+
+            <exception-mapping exception="java.lang.RuntimeException" result="error"></exception-mapping>
+        </global-exception-mappings>
         <!--
             整合方案1：
             class属性上仍然配置action的完整类名
@@ -25,8 +29,14 @@
         完全由spring管理action生命周期，包括Action的创建
         这种方式下，spring不能组装属性
         -->
-        <action name="userAction_*" class="userAction" method="{1}">
+        <action name="UserAction_*" class="userAction" method="{1}">
+            <result name="toHome" type="redirect">/index.htm</result>
             <result name="success">/index.jsp</result>
+            <result name="error">/login.jsp</result>
+        </action>
+        <action name="CustomerAction_*" class="customerAction" method="{1}">
+            <result name="list">/jsp/customer/list.jsp</result>
         </action>
     </package>
+
 </struts>
