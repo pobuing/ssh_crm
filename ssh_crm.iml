@@ -31,7 +31,7 @@
       <configuration>
         <datasource-map>
           <unit-entry name="noname-applicationContext.xml@1173" value="490775e3-6418-4bd5-a9ad-f86f116a68b1" />
-          <unit-entry name="noname-applicationContext.xml@1530" />
+          <unit-entry name="noname-applicationContext.xml@2450" value="c6607d1a-2d6e-4dec-89ea-37de41d5b755" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate.cfg.xml.back" />
@@ -58,5 +58,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="commons-collections-3.2.1" level="project" />
+    <orderEntry type="library" name="servlet-api" level="project" />
   </component>
 </module>

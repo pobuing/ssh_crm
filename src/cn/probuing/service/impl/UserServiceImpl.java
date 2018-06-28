@@ -40,6 +40,6 @@ public class UserServiceImpl implements UserService {
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED, readOnly = false)
     @Override
     public void saveUser(User u) {
-        ud.saveUser(u);
+        ud.save(u);
     }
 }

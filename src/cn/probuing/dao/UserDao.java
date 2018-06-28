@@ -7,9 +7,7 @@ import cn.probuing.domain.User;
  * @Date: 2018/6/15 11:20
  * @Description:
  */
-public interface UserDao {
+public interface UserDao extends BaseDao<User> {
     //根据登录名称查询user对象
     User getByUserCode(String userCode);
-
-    void saveUser(User user);
 }

@@ -4,7 +4,6 @@ import cn.probuing.dao.UserDao;
 import cn.probuing.domain.User;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import java.util.List;
 
@@ -13,7 +12,7 @@ import java.util.List;
  * @Date: 2018/6/15 11:21
  * @Description:
  */
-public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
+public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
     // TODO:  为dao注入sessionFactory
     @Override
     public User getByUserCode(final String userCode) {
@@ -38,9 +37,4 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
         return null;
     }
 
-    @Override
-    public void saveUser(User user) {
-        //使用Hibernate模板方法保存
-        getHibernateTemplate().save(user);
-    }
 }

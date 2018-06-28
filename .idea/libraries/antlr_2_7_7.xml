@@ -48,6 +48,7 @@
     <SOURCES>
       <root url="jar://$USER_HOME$/.ideaLibSources/spring-orm-4.2.4.RELEASE-sources.jar!/" />
       <root url="jar://$USER_HOME$/.ideaLibSources/xwork-core-2.3.24-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/struts2-core-2.3.24-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

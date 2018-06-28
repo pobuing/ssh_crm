@@ -33,6 +33,11 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
         return "list";
     }
 
+    public String add() throws Exception {
+        cs.save(customer);
+        return "toList";
+    }
+
     @Override
     public Customer getModel() {
         return customer;
