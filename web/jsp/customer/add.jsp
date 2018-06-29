@@ -24,7 +24,7 @@
 <BODY>
 	<FORM id=form1 name=form1
 		action="${pageContext.request.contextPath }/CustomerAction_add"
-		method=post>
+		method="post" enctype="multipart/form-data">
 		
 
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
@@ -94,7 +94,12 @@
 														style="WIDTH: 180px" maxLength=50 name="cust_mobile">
 								</td>
 							</TR>
-							
+							<tr>
+								<td>图片上传</td>
+								<td >
+									<input type="file" name="photo"/>
+								</td>
+							</tr>
 							<tr>
 								<td rowspan=2>
 								<INPUT class=button id=sButton2 type=submit
