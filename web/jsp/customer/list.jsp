@@ -11,7 +11,20 @@
     <LINK href="${pageContext.request.contextPath }/css/Manage.css" type=text/css
           rel=stylesheet>
     <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.4.4.min.js"></script>
-    <SCRIPT language=javascript>
+    <script type="text/javascript">
+        function selectCustomer(cust_id, cust_name) {
+            //获得添加页面的window
+            var win = window.opener;
+            //获得添加页面的document对象
+            var doc = win.document;
+            //获得隐藏域，和文本框
+            doc.getElementById("cust_id").value = cust_id;
+            doc.getElementById("cust_name").value = cust_name;
+            //关闭窗口
+            window.close();
+
+        }
+
         function changePageSize(pageSize) {
             $("#pageSizeInput").val(pageSize);
             $("#customerForm").submit();
@@ -69,6 +82,8 @@
                             <!--隐藏域 每页显示条数-->
                             <input type="hidden" name="pageSize" id="pageSizeInput"
                                    value="<s:property value="#pb.pageSize"/>"/>
+                            <!--隐藏域 放置选择标记-->
+                            <input type="hidden" name="select" value="<s:property value="#parameters.select"/>"/>
                             <TABLE cellSpacing=0 cellPadding=2 border=0>
                                 <TBODY>
                                 <TR>
@@ -124,9 +139,17 @@
                                         <s:property value="#cust.cust_mobile"/>
                                     </TD>
                                     <TD>
-                                        <a href="${pageContext.request.contextPath }/customerServlet?method=edit&custId=${customer.cust_id}">修改</a>
-                                        &nbsp;&nbsp;
-                                        <a href="${pageContext.request.contextPath }/customerServlet?method=delete&custId=${customer.cust_id}">删除</a>
+                                        <s:if test="#parameters.select==null">
+
+                                            <a href="${pageContext.request.contextPath }/CustomerAction_toEdit?cust_id=<s:property value="#cust.cust_id"/>">修改</a>
+                                            &nbsp;&nbsp;
+                                            <a href="${pageContext.request.contextPath }/customerServlet?method=delete&custId=${customer.cust_id}">删除</a>
+                                        </s:if>
+                                        <s:else>
+                                            <input type="button" value="选择"
+                                                   onclick="selectCustomer(<s:property value="#cust.cust_id"/>,
+                                                           '<s:property value="#cust.cust_name"/>')"/>
+                                        </s:else>
                                     </TD>
                                 </TR>
                             </s:iterator>

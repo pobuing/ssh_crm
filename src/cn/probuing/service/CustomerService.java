@@ -19,4 +19,6 @@ public interface CustomerService {
      * @param customer
      */
     void save(Customer customer);
+
+    Customer getById(Long cust_id);
 }

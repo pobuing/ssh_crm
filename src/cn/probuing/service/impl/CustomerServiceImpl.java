@@ -33,6 +33,12 @@ public class CustomerServiceImpl implements CustomerService {
         cd.saveOrUpdate(customer);
     }
 
+    @Override
+    public Customer getById(Long cust_id) {
+        Customer customer = cd.getById(cust_id);
+        return customer;
+    }
+
     public void setCd(CustomerDao cd) {
         this.cd = cd;
     }

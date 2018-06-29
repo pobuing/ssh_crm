@@ -43,11 +43,25 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
     }
 
     public String add() throws Exception {
-        //处理上传文件
-        photo.renameTo(new File("/Users/wxblack-mac/fileuploadTest/" + photoFileName));
-        System.out.println(photoFileName + "**" + photoContentType);
+        if (photo != null) {
+            //处理上传文件
+            photo.renameTo(new File("/Users/wxblack-mac/fileuploadTest/" + photoFileName));
+        }
         cs.save(customer);
         return "toList";
+    }
+
+    /**
+     * 跳转到修改页面
+     *
+     * @return
+     * @throws Exception
+     */
+    public String toEdit() throws Exception {
+        //根据id查询customer返回到界面
+        Customer c = cs.getById(customer.getCust_id());
+        ActionContext.getContext().put("customer", c);
+        return "edit";
     }
 
     @Override
