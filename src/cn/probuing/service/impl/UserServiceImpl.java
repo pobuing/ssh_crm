@@ -40,6 +40,10 @@ public class UserServiceImpl implements UserService {
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED, readOnly = false)
     @Override
     public void saveUser(User u) {
+        User existU = ud.getByUserCode(u.getUser_code());
+        if (existU != null) {
+            throw new RuntimeException("用户已存在！");
+        }
         ud.save(u);
     }
 }

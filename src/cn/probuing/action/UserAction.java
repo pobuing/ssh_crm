@@ -13,22 +13,40 @@ import com.opensymphony.xwork2.ModelDriven;
  */
 public class UserAction extends ActionSupport implements ModelDriven<User> {
     private UserService userService;
-    private User u = new User();
+    private User user = new User();
 
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
 
     public String login() throws Exception {
-        //调用service执行登录逻辑
-        User user = userService.getUserByCodePassword(u);
-        //将返回的User对象放到session域中
-        ActionContext.getContext().getSession().put("user", user);
+        try {
+            //调用service执行登录逻辑
+            User u = userService.getUserByCodePassword(user);
+            //将返回的User对象放到session域中
+            ActionContext.getContext().getSession().put("user", u);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ActionContext.getContext().put("error", e.getMessage());
+            return "error";
+        }
         return "toHome";
+    }
+
+    public String regist() throws Exception {
+        //service查询用户是否存在
+        try {
+            userService.saveUser(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ActionContext.getContext().put("error", e.getMessage());
+            return "regist";
+        }
+        return "toLogin";
     }
 
     @Override
     public User getModel() {
-        return u;
+        return user;
     }
 }

@@ -74,13 +74,13 @@ style="LEFT: 0px; POSITION: absolute; TOP: 0px; BACKGROUND-COLOR: #0066ff"></DIV
                   style="WIDTH: 130px" name=txtcode></TD>
                 <TD style="HEIGHT: 28px">&nbsp;</TD></TR>
               <TR>
-                <TD style="HEIGHT: 18px" colspan="2" ><font color="red" ><s:property value="exception.message" /> </font></TD>
+                <TD style="HEIGHT: 18px" colspan="2" ><font color="red" ><s:property value="#error" /> </font></TD>
                 <TD style="HEIGHT: 18px"></TD></TR>
               <TR>
-                <TD></TD>
-                <TD><INPUT id=btn 
+                <TD colspan="2" ><INPUT id=btn 
                   style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
-                  type=image src="images/login_button.gif" name=btn> 
+                  type=image src="images/login_button.gif" name=btn>
+                  <img src="images/regist_button.png" style="cursor: pointer;" onclick="window.location.href='${pageContext.request.contextPath}/regist.jsp'" >
               </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
   <TR>
     <TD><IMG src="images/login_3.jpg" 
