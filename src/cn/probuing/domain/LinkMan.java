@@ -58,6 +58,19 @@ public class LinkMan {
 	public Character getLkm_gender() {
 		return lkm_gender;
 	}
+	public String getLkm_gender_s() {
+		if(lkm_gender==null){
+			return "";
+		}
+		switch (lkm_gender) {
+		case '1':
+			return "男";
+		case '2':
+			return "女";
+		default:
+			return "";
+		}
+	}
 	public void setLkm_gender(Character lkm_gender) {
 		this.lkm_gender = lkm_gender;
 	}

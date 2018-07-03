@@ -3,11 +3,11 @@
 *.log
 *.ctxt
 .mtj.tmp/
-*.jar
 *.war
 *.nar
 *.ear
 *.zip
+*.jar
 *.tar.gz
 *.rar
 hs_err_pid*
@@ -15,6 +15,5 @@ hs_err_pid*
 *.iml
 .idea
 out
-src/applicationContext.xml
 src/hibernate.cfg.xml.back
-*.properties
+db.properties

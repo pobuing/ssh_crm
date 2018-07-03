@@ -1,24 +1,16 @@
 package cn.probuing.service;
 
+
 import cn.probuing.domain.Customer;
-import cn.probuing.util.PageBean;
+import cn.probuing.utils.PageBean;
 import org.hibernate.criterion.DetachedCriteria;
 
-/**
- * @Auther: wxblack-mac
- * @Date: 2018/6/27 14:54
- * @Description:
- */
 public interface CustomerService {
-    //获得分页封装对象
-    PageBean getPageBean(DetachedCriteria criteria, Integer currentPage, Integer pageSize);
+	//分页业务方法
+	PageBean getPageBean(DetachedCriteria dc, Integer currentPage, Integer pageSize);
+	//保存客户方法
+	void save(Customer customer);
+	//根据id获得客户对象
+	Customer getById(Long cust_id);
 
-    /**
-     * 保存客户
-     *
-     * @param customer
-     */
-    void save(Customer customer);
-
-    Customer getById(Long cust_id);
 }
