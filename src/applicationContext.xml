@@ -6,17 +6,20 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
     <!--action配置-->
     <!--action的对象作用范围一定是多例的 保证每次向spring要对象的时候都是新的-->
-    <bean name="userAction" class="cn.probuing.action.UserAction" scope="prototype">
+    <bean name="userAction" class="cn.probuing.web.action.UserAction" scope="prototype">
         <property name="userService" ref="userService"/>
     </bean>
-    <bean class="cn.probuing.action.CustomerAction" name="customerAction" scope="prototype">
+    <bean class="cn.probuing.web.action.CustomerAction" name="customerAction" scope="prototype">
         <property name="cs" ref="customerService"/>
     </bean>
-    <bean class="cn.probuing.action.BaseDictAction" name="baseDictAction" scope="prototype">
+    <bean class="cn.probuing.web.action.BaseDictAction" name="baseDictAction" scope="prototype">
         <property name="baseDictService" ref="baseDictService"/>
     </bean>
-    <bean name="linkManAction" class="cn.probuing.action.LinkManAction" scope="prototype">
+    <bean name="linkManAction" class="cn.probuing.web.action.LinkManAction" scope="prototype">
         <property name="lms" ref="linkManService"/>
+    </bean>
+    <bean class="cn.probuing.web.action.SaleVisitAction" name="saleVisitAction" scope="prototype">
+        <property name="svs" ref="saleVisitService"/>
     </bean>
     <!--service配置-->
     <bean name="userService" class="cn.probuing.service.impl.UserServiceImpl">
@@ -31,6 +34,9 @@
     <bean name="linkManService" class="cn.probuing.service.impl.LinkManServiceImpl">
         <property name="lmd" ref="linkManDao"/>
     </bean>
+    <bean class="cn.probuing.service.impl.SaleVisitServiceImpl" name="saleVisitService">
+        <property name="svd" ref="saleVisitDao"/>
+    </bean>
     <!--配置dao-->
     <bean name="userDao" class="cn.probuing.dao.impl.UserDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
@@ -42,6 +48,9 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
     <bean name="linkManDao" class="cn.probuing.dao.impl.LinkManDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean class="cn.probuing.dao.impl.SaleVisitDaoImpl" name="saleVisitDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
     <!--hibernate配置 配置sessionFactory-->
