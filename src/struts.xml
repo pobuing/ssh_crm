@@ -75,6 +75,7 @@
             </result>
             <result name="list">/jsp/salevisit/list.jsp</result>
             <result name="add">/jsp/salevisit/add.jsp</result>
+            <result name="industryCount">/jsp/customer/industryCount.jsp</result>
         </action>
     </package>
 
